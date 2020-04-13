@@ -1,0 +1,164 @@
+/* pages/musiclist/musiclist.wxss */
+.message{
+  height: 240px;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+.message .logo_box{
+  position: relative;
+  
+}
+.message .logo_img{
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 20rpx;
+  margin-left: 30rpx;
+  vertical-align: bottom;
+}
+.message .play_num{
+  position: absolute;
+  right: 10rpx;
+  top: 10rpx;
+  color: #f1f1f1;
+  vertical-align: top;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60rpx;
+  font-size: 30rpx;
+}
+.message .play_num image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.message_box{
+  display: flex;
+  flex-direction: column;
+  color: #f1f1f1;
+  height: 300rpx;
+  margin-left: 30rpx;
+  justify-content: center;
+  padding-right: 30rpx;
+  width: 400rpx;
+}
+.message .message_box .title image{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 25rpx;
+  vertical-align: middle;
+  margin-right: 8px;
+  margin-left: 0;
+}
+.message .message_box .name{
+  font-size: 34rpx;
+  margin-bottom: 20rpx;
+  font-weight: 500;
+}
+.message .message_box .title{
+  text-align: left;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+.message .message_box .title text{
+  font-size: 24rpx;
+}
+.description{
+  font-size: 24rpx;
+}
+.share{
+  position: absolute;
+  width: 50%;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 35rpx;
+  text-align: center;
+  line-height: 60rpx;
+  height: 70rpx;
+  color: #f1f1f1;
+  bottom: 100rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.share image{
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: middle;
+}
+.share button{
+  vertical-align: middle;
+  margin-left: 20rpx;
+  display: inline-block;
+  background: transparent;
+  color: #f1f1f1;
+  font-size: 30rpx;
+  font-weight: 0;
+  padding: 0;
+  width: 240rpx !important;
+}
+
+.list_data{
+  width: 100%;
+  border-radius: 50rpx;
+  margin-top: -40rpx;
+  z-index: 999;
+  background-color: #fff;
+}
+.play_all{
+  height: 80rpx;
+  padding-top: 20rpx;
+  padding-left: 34rpx;
+}
+.play_all image{
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+.play_all text {
+  vertical-align: middle;
+}
+.play_all .txt_num{
+  font-size: 26rpx;
+  color: #8a8a8a;
+  margin-left: 10rpx;
+}
+.hot_list_box{
+  display: flex;
+  height: 120rpx;
+  padding: 0 20px;
+  align-items: center;
+  border-radius: 40rpx;
+}
+.hot_list_box .txt{
+  margin-right: 40rpx;
+}
+.search_list .txt{
+  flex: 1;
+  font-size: 30rpx;
+}
+.search_list .txt1{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  -o-text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size: 24rpx;
+  color: #8a8a8a;
+}
+.search_list {
+  flex: 3;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+.search_img_box{
+  width: 20%;
+  flex: 1;
+  text-align: right;
+  height: 120rpx;
+  line-height: 160rpx;
+}
+.search_score{
+  width: 60rpx  !important;
+  height: 60rpx !important;
+}

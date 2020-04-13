@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<mp-navigation-bar  loading="{{loading}}" show="{{show}}" animated="{{animated}}" color="{{color}}" background="{{background}}" title="音咖之家" back="{{false}}"></mp-navigation-bar>
+<import src="template.wxml"/>
+<view class="container">
+  <!-- <template is="search" bindTap="onTap"></template> -->
+  <navigator url="../search/search" class="search" >
+    <mp-search throttle="0" focus="{{true}}" cancel="{{false}}" disabled="{{true}}"></mp-search>
+  </navigator>
+  <view class="list_main" wx:for="{{topList}}" wx:key="*this" bindtap="onTap" data-id="{{item.id}}" data-color="{{item.color}}">
+    <view class="list_box">
+      <image class="coverImgUrl" src="{{item.coverImgUrl}}"></image>
+      <text class="update_message">{{item.updateFrequency}}</text>
+      <view class="item_list"> 
+        <text class="item_box" wx:for="{{item.tracks}}" wx:key="*this">{{index+1}}.{{item.first}}-{{item.second}}</text>
+      </view>
+    </view>
+  </view> 
+
+</view>

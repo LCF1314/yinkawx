@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/musiclist/musiclist",
+    "pages/search/search",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "音咖之家",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "mp-navigation-bar": "./components/navigation-bar/navigation-bar",
+    "mp-search": "./components/search/search"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

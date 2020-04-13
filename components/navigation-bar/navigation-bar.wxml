@@ -1,0 +1,38 @@
+<view class="weui-navigation-bar {{extClass}}">
+  <view class="weui-navigation-bar__placeholder {{ios ? 'ios' : 'android'}}" style="padding-top: {{statusBarHeight}}px;visibility: hidden;"></view>
+  <view class="weui-navigation-bar__inner {{ios ? 'ios' : 'android'}}" style="padding-top: {{statusBarHeight}}px; color: {{color}};background: {{background}};{{displayStyle}};{{innerPaddingRight}};{{innerWidth}};">
+
+    <view class='weui-navigation-bar__left {{back ? "weui-navigation-bar__left_back" : ""}} {{color =="#fff" ? "weui-navigation-bar__left_back_color" : ""}}' style="{{leftWidth}}">
+      <block wx:if="{{back}}">
+        <view class="weui-navigation-bar__buttons">
+          <image wx:if="{{color == '#fff'}}" bindtap="back" src="../../assets/img/back.png" class="weui-navigation-bar__button weui-navigation-bar__btn_goBack "></image>
+          <view wx:else bindtap="back" class="weui-navigation-bar__button weui-navigation-bar__btn_goback"></view>
+        </view>
+        <view class="line"></view>
+        <view class="weui-navigation-bar__buttons">
+          <image wx:if="{{color == '#fff'}}" bindtap="onTaoGoHome" src="../../assets/img/homepage.png" class="weui-navigation-bar__button  weui-navigation-bar__btn_goHome"></image>
+          <image wx:else bindtap="onTaoGoHome" src="../../assets/img/home.png" class="weui-navigation-bar__button  weui-navigation-bar__btn_goHome"></image>
+        </view>
+      </block>
+      <block wx:else>
+        <slot name="left"></slot>
+      </block>
+    </view>
+
+    <view class='weui-navigation-bar__center'>
+      <view wx:if="{{loading}}" class="weui-navigation-bar__loading">
+        <view class="weui-loading" style="width:{{size.width}}rpx;height:{{size.height}}rpx;"></view>
+      </view>
+      <block wx:if="{{title}}">
+        <text>{{title}}</text>
+      </block>
+      <block wx:else>
+        <slot name="center"></slot>
+      </block>
+    </view>
+
+    <view class='weui-navigation-bar__right'>
+      <slot name="right"></slot>
+    </view>
+  </view>
+</view>

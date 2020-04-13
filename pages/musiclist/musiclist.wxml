@@ -1,0 +1,53 @@
+<!--pages/musiclist/musiclist.wxml-->
+<wxs module="filters" src="./musiclist.wxs"></wxs>
+<mp-navigation-bar  
+  loading="{{loading}}" 
+  show="{{true}}" 
+  animated="{{animated}}" 
+  color="{{color}}" 
+  background="{{background}}" 
+  title="歌单" 
+  back="{{true}}">
+</mp-navigation-bar>
+<view class="container" wx:if="detailData">
+  <view class="message" style="background:{{background}}">
+    <view class="logo_box">
+      <image class="logo_img" src="{{detailData.coverImgUrl}}"></image>
+      <view class="play_num" wx:if="detailData.playCount">
+        <image src="../../assets/img/play_nums.png"></image>
+        <text wx:if="{{detailData.playCount < 9999}}">{{detailData.playCount || 0}}</text>
+        <text wx:elif="{{detailData.playCount > 9999 && detailData.playCount < 99999999}}">{{filters.toFix(detailData.playCount / 10000 || 0, 1) || 0}}万</text>
+        <text wx:else="{{detailData.playCount < 99999999}}">{{filters.toFix(detailData.playCount / 100000000 || 0, 1) || 0}}亿</text>
+      </view>
+    </view>
+    <view class="message_box">
+      <text class="name">{{detailData.name}}</text>
+      <view class="title">
+        <image  src="{{detailData.creator.avatarUrl}}"></image>
+        <text>{{detailData.creator.nickname}}</text>
+      </view>
+      <text class="description">{{detailData.description}}</text>
+    </view>
+    <view class="share">
+      <image src="../../assets/img/share.png"></image>
+      <button open-type="share" bindtap="onShare">分享给微信好友</button>
+    </view>
+  </view>
+  <view class="list_data">
+    <view class="play_all">
+      <image src="../../assets/img/play_all.png"></image>
+      <text>播放全部</text>
+      <text class="txt_num">(共{{detailData.tracks.length}}首)</text>
+    </view>
+    <view bindtap="onTap" class="hot_list_box" wx:for="{{detailData.tracks}}" wx:key="index" data-id="{{item.id}}">
+      <text class="txt">{{index + 1}}</text>
+      <view class="content_box search_list">
+        <text class="txt">{{item.name}}</text>
+        <text class="txt1">{{item.ar[0].name}}-{{item.name}}</text>
+      </view>
+      <view class="search_img_box">
+        <image class="search_score" src="../../assets/img/play.png"></image>
+      </view>
+    </view>
+  </view>
+</view>

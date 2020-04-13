@@ -1,0 +1,6 @@
+<template name="search">
+  <view class="search">
+    <image class="search_img" src="../../assets/img/search.png"></image>
+    <input class="search_input" maxlength="10" placeholder="搜索歌曲" />
+  </view>
+</template>

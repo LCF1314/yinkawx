@@ -1,0 +1,56 @@
+<!--pages/search/search.wxml-->
+<!--index.wxml-->
+<mp-navigation-bar  
+  loading="{{loading}}" 
+  show="{{true}}" 
+  animated="{{animated}}" 
+  color="{{color}}" 
+  background="{{background}}" 
+  title="搜索" 
+  back="{{true}}">
+</mp-navigation-bar>
+
+<view class="container">
+    <view class="search_box {{isStartSearch ? 'search_box_bd' : ''}}">
+      <view class="search">
+        <mp-search
+          focus="{{false}}"
+          cancel="{{false}}"
+          value="{{searchWord}}"
+          search="{{searchFn}}"
+          bindclear="clearFn"
+          bindinput="inputChange"
+        ></mp-search>
+      </view>
+    </view>
+    <view class="hot_list" wx:if="{{isStartSearch}}">
+      <view bindtap="onSearchTap" class="hot_list_box hot_list_search_box" wx:for="{{searchDataList}}" wx:key="index" data-id="{{item.id}}">
+        <view class="content_box search_list">
+          <text class="txt">{{item.name}}</text>
+          <!-- <view>
+            <image class="{{item.iconType == 1 ? 'imgHot' : item.iconType == 5 ? 'arrImg' : 'imgHot'}}" src="{{item.artists[0].img1v1Url}}"></image>
+          </view> -->
+          <text class="txt1">{{item.artists[0].name}}-{{item.album.name}}</text>
+        </view>
+       <view class="search_img_box">
+         <image class="search_score" src="../../assets/img/play.png"></image>
+       </view>
+      </view>
+    </view>
+    <view class="hot_list" wx:if="{{!isStartSearch}}">
+      <text>热搜榜</text>
+      <view bindtap="onTap" class="hot_list_box" wx:for="{{hotList}}" wx:key="index" data-name="{{item.searchWord}}">
+        <text class="num {{index <=2 ? 'red' : ''}}">{{index+1}}</text>
+        <view class="content_box">
+          <view>
+            <text class="txt">{{item.searchWord}}</text>
+            <image class="{{item.iconType == 1 ? 'imgHot' : item.iconType == 5 ? 'arrImg' : 'imgHot'}}" src="{{item.iconUrl}}"></image>
+          </view>
+          <text class="txt1">{{item.content}}</text>
+        </view>
+        <text class="score">{{item.score}}</text>
+      </view>
+    </view>
+  
+</view>
+
