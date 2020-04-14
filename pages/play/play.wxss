@@ -1,0 +1,101 @@
+/* pages/play/play.wxss */
+.conatiner{
+  width: calc(100wh);
+  height: calc(100vh);
+  position: relative;
+}
+.bg{
+  width: 100%;
+  height: calc(100vh);
+  filter: blur(10px);
+}
+.play_baseball{
+  position: absolute;
+  top: 0;
+  left: calc(50% - 18px);
+  width: 96px;
+  height: 137px;
+  z-index: 99;
+}
+.play_baseball_disc_box{
+  width: 222px;
+  height: 222px;
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.play_baseball_disc1{
+  width: 222px;
+  height: 222px;
+}
+
+.play_baseball_disc_rate{
+  animation: haha1 10s linear infinite;
+}
+.suspended{
+  animation-play-state: paused;
+}
+@keyframes haha1{
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg) ;
+  }
+  100% {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}
+.play_baseball_disc_picUrl{
+  width: 140px;
+  height: 140px;
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  top: 110px;
+  transform: translateX(-50%);
+}
+.picUrl{
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+}
+.play_baseball_disc{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.play_baseball_disc_playing{
+  top: 155px;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, .2);
+  border-radius: 50%;
+  text-align: center;
+}
+.playing{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: 150px;
+  z-index: 9;
+}
+.scroll{
+  height: 200rpx;
+  width: 100%;
+  color: #fff;
+  position: absolute;
+  top: 600rpx;
+  text-align: center;
+}
+.scroll .lyc_item{
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.scroll .lyc_item text{
+  font-size: 26rpx;
+}
+.currentColor{
+  color: aquamarine;
+}

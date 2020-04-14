@@ -31,7 +31,7 @@ Page({
     //   }
     // })
     wx.request({
-      url: `${app.globalData.host}/toplist/detail`,
+      url: `${app.globalData.url.toplist}`,
       success: (data) => {
         console.log(data);
         this.setData({
@@ -82,9 +82,9 @@ Page({
   //   })
   // }
   onTap(e) {
-    console.log(e.currentTarget.dataset.id);
+    let {id, color} = e.currentTarget.dataset;
     wx.navigateTo({
-      url: `../musiclist/musiclist?id=${e.currentTarget.dataset.id}&color=${e.currentTarget.dataset.color}`,
+      url: `../musiclist/musiclist?id=${id}&color=${color}`,
     })
   }
 })

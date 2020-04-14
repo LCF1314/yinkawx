@@ -1,0 +1,32 @@
+<!--pages/play/play.wxml-->
+<mp-navigation-bar  
+  loading="{{loading}}" 
+  show="{{true}}" 
+  animated="{{animated}}" 
+  color="{{color}}" 
+  background="{{background}}" 
+  title="歌单" 
+  back="{{true}}">
+</mp-navigation-bar>
+<view class="conatiner">
+  <image class="bg" src="{{song.al.picUrl}}"></image>
+  <image src="../../assets/img/needle-ip6.png" class="play_baseball"></image>
+  <view class="play_baseball_disc_box" >
+    <image id="disc" src="../../assets/img/disc-ip6.png" class="play_baseball_disc1" ></image>
+  </view>
+   <!-- {{isPlaying ? 'play_baseball_disc_rate' : ''}} -->
+  <view class="play_baseball_disc_picUrl" >
+    <image id="picUrl" src="{{song.al.picUrl}}" animation="{{animationData}}" class="picUrl" ></image>
+  </view>
+  <image bindtap="onPlaying" wx:if="{{isPlaying}}" src="../../assets/img/playing.png" class="play_baseball_disc playing"></image>
+  <image bindtap="onPlaying" wx:else src="../../assets/img/stop_play.png" class="play_baseball_disc playing"></image>
+  <view class="play_baseball_disc play_baseball_disc_playing"></view>
+  <scroll-view class="scroll" scroll-into-view="{{currentLrc}}" scroll-y="{{true}}" scroll-with-animation="{{false}}">
+  <!-- scroll-y="{{true}}" -->
+    <view class="lyc_item {{currentLrc === 'el-'+index ? 'currentColor' : '' }}" wx:for="{{lyric}}"  wx:key="{{index}}" id="el-{{index}}">
+      <text>
+        {{lyric[index]}}
+      </text>
+    </view>
+  </scroll-view>
+</view>

@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/musiclist/musiclist",
     "pages/search/search",
+    "pages/play/play",
     "pages/logs/logs"
   ],
   "window": {

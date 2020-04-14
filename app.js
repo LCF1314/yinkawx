@@ -1,4 +1,5 @@
 //app.js
+import url from './config/url.js'
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -35,6 +36,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    host: 'https://www.lw1314.cn:3000'
+    url: url
   },
 })

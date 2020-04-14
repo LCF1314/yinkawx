@@ -25,7 +25,7 @@ Page({
    */
   onLoad: function (options) {
     wx.request({
-      url: `${app.globalData.host}/search/hot/detail`,
+      url: `${app.globalData.url.searchHot}`,
       success: (data) => {
         this.setData({
           hotList: data.data.data
@@ -82,8 +82,12 @@ Page({
   onShareAppMessage: function () {
 
   },
-  onSearchTap() {
-
+  onSearchTap(e) {
+    console.log(e);
+    let {id} = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: `../play/play?id=${id}&color=${"#518ED2" || this.data.background}`,
+    })
   },
   onTap(e) {
     this.setData({
@@ -131,7 +135,7 @@ Page({
       title: '加载中',
     })
     wx.request({
-      url: `${app.globalData.host}/search?keywords=${this.data.searchWord}&offset=${offset || this.data.index}`,
+      url: `${app.globalData.url.search}?keywords=${this.data.searchWord}&offset=${offset || this.data.index}`,
       success: (data) => {
         wx.hideLoading()
         let  searchDataList = this.data.searchDataList;

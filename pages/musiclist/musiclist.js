@@ -24,7 +24,7 @@ Page({
       background: options.color
     })
     wx.request({
-      url: `${app.globalData.host}/playlist/detail?id=${options.id || 19723756} `, //${options.id}
+      url: `${app.globalData.url.playlist}?id=${options.id || 19723756} `, //${options.id}
       success: (data) => {
         console.log(data);
         this.setData({
@@ -89,17 +89,9 @@ Page({
   },
   onTap(e) {
     console.log(e);
-    wx.request({
-      url: `${app.globalData.host}/song/url?id=${e.currentTarget.dataset.id} `, //${options.id}
-      success: (data) => {
-        console.log(data);
-      }
-    })
-    wx.request({
-      url: `${app.globalData.host}/lyric?id=${e.currentTarget.dataset.id} `, //${options.id}
-      success: (data) => {
-        console.log(data.data.lrc.lyric);
-      }
+    let {id} = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: `../play/play?id=${id}&color=${this.data.background}`,
     })
   },
   onShare() {
