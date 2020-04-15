@@ -1,5 +1,6 @@
 //app.js
 import url from './config/url.js'
+let backgroundAudioManager=null;
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -33,6 +34,15 @@ App({
         }
       }
     })
+  },
+  onShow (options) {
+    console.log(options);
+    // Do something when show.
+  },
+  onHide () {
+    // Do something when hide.
+    // backgroundAudioManager = wx.getBackgroundAudioManager();
+    // console.log(backgroundAudioManager)
   },
   globalData: {
     userInfo: null,

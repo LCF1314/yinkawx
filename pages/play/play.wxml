@@ -23,7 +23,7 @@
   <view class="play_baseball_disc play_baseball_disc_playing"></view>
   <scroll-view class="scroll" scroll-into-view="{{currentLrc}}" scroll-y="{{true}}" scroll-with-animation="{{false}}">
   <!-- scroll-y="{{true}}" -->
-    <view class="lyc_item {{currentLrc === 'el-'+index ? 'currentColor' : '' }}" wx:for="{{lyric}}"  wx:key="{{index}}" id="el-{{index}}">
+    <view class="lyc_item {{currentLrc === 'el-'+index ? 'currentColor' : '' }}" wx:for="{{lyric}}" wx:key="index" id="el-{{index}}">
       <text>
         {{lyric[index]}}
       </text>

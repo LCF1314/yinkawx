@@ -6,7 +6,7 @@
   <navigator url="../search/search" class="search" >
     <mp-search throttle="0" focus="{{true}}" cancel="{{false}}" disabled="{{true}}"></mp-search>
   </navigator>
-  <view class="list_main" wx:for="{{topList}}" wx:key="*this" bindtap="onTap" data-id="{{item.id}}" data-color="{{item.color}}">
+  <view class="list_main" wx:for="{{topList}}" wx:key="index" bindtap="onTap" data-id="{{item.id}}" data-color="{{item.color}}">
     <view class="list_box">
       <image class="coverImgUrl" src="{{item.coverImgUrl}}"></image>
       <text class="update_message">{{item.updateFrequency}}</text>

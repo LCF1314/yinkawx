@@ -83,7 +83,7 @@ Page({
   onShareAppMessage: function (e) {
     return {
       title: this.data.detailData.name,
-      path: "/pages/musiclist/musiclist",
+      path: "/pages/index/index",
       imageUrl: this.data.detailData.coverImgUrl
     }
   },

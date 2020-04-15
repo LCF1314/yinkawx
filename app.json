@@ -18,5 +18,6 @@
     "mp-search": "./components/search/search"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "requiredBackgroundModes": ["audio"]
 }

@@ -1,7 +1,7 @@
 // pages/play/play.js
 const app = getApp()
 let _animationIntervalId = 0;
-let InnerAudioContext = null;
+let backgroundAudioManager = null;
 Page({
 
   /**
@@ -48,6 +48,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if(!backgroundAudioManager) {
+      backgroundAudioManager = wx.getBackgroundAudioManager();
+    }
     let { id , color} = options;
     this.setData({
       background: color
@@ -59,11 +62,12 @@ Page({
           song: data.data.songs[0]
         })
         console.log(this.data.song);
+        backgroundAudioManager.title =  this.data.song.name
+        backgroundAudioManager.epname = this.data.song.name
+        backgroundAudioManager.singer = this.data.song.ar[0].name
+        backgroundAudioManager.coverImgUrl = this.data.song.al.picUrl
       }
     });
-    if(!InnerAudioContext) {
-      InnerAudioContext = wx.createInnerAudioContext();
-    }
     wx.request({
       url: `${app.globalData.url.songUrl}?id=${id} `, //${options.id}
       success: (data) => {
@@ -71,9 +75,9 @@ Page({
         this.setData({
           musicUrl: data.data.data[0].url
         })
-        InnerAudioContext.src = this.data.musicUrl;
-        this.onPlaying();
-        this.onPlaying();
+        backgroundAudioManager.src = this.data.musicUrl;
+        
+        
       }
     });
     wx.request({
@@ -85,15 +89,20 @@ Page({
         lyric.replace(lrc, ($0, $1, $2) => {
           obj[$1.substring(0,5)]= $2;
         })
-        console.log(obj);
         this.setData({
           lyric: obj
         })
-        InnerAudioContext.onPlay(res => {
+        this.onPlaying();
+        this.onPlaying();
+        backgroundAudioManager.onPlay(res => {
           console.log('开始播放')
         })
-        InnerAudioContext.onTimeUpdate(res => {
-          let {currentTime:c} = InnerAudioContext;
+        wx.onBackgroundAudioPlay((res) => {
+          console.log('开始播放')
+          
+        })
+        backgroundAudioManager.onTimeUpdate(res => {
+          let {currentTime:c} = backgroundAudioManager;
           this.setData({
             currentTime: c
           })
@@ -129,7 +138,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    InnerAudioContext.destroy();
+   
   },
 
   /**
@@ -171,10 +180,10 @@ Page({
       isPlaying: isPlay ? false : true
     })
     if(!this.data.isPlaying) {
-      InnerAudioContext.pause()
+      backgroundAudioManager.pause()
       this.stopAnimationInterval();
     }else{
-      InnerAudioContext.play();
+      backgroundAudioManager.play();
       this.startAnimationInterval();
     }
   },
