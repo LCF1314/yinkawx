@@ -76,8 +76,6 @@ Page({
           musicUrl: data.data.data[0].url
         })
         backgroundAudioManager.src = this.data.musicUrl;
-        
-        
       }
     });
     wx.request({
@@ -115,6 +113,12 @@ Page({
             })
           }
         });
+        backgroundAudioManager.onStop(res => {
+          console.log('结束播放')
+          this.setData({
+            isPlaying: false
+          })
+        })
       }
     });
     this.startAnimationInterval();

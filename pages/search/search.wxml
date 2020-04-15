@@ -14,7 +14,7 @@
     <view class="search_box {{isStartSearch ? 'search_box_bd' : ''}}">
       <view class="search">
         <mp-search
-          focus="{{false}}"
+          focus="{{true}}"
           cancel="{{false}}"
           value="{{searchWord}}"
           search="{{searchFn}}"
